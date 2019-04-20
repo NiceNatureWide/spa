@@ -10,13 +10,14 @@ spa.util = (function () {
     let makeError, setConfigMap;
 
     makeError = (name_text, msg_text, data) => {
+        let error = new Error();
         error.name = name_text;
         error.message = msg_text;
 
         if (data) {error.data = data;}
 
         return error;
-    }
+    };
 
     setConfigMap = (arg_map) => {
         let input_map = arg_map.input_map;
