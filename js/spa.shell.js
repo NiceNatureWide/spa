@@ -57,12 +57,12 @@ spa.shell = (function () {
                 if (key_name.indexOf('_') === 0) {continue KEYVAL;}
                 anchor_map_revise[key_name] = arg_map[key_name];
 
-                key_name_dep = `_${key_name}`;
+                key_name_dep = '_' + key_name;
                 if(arg_map[key_name_dep]) {
                     anchor_map_revise[key_name_dep] = arg_map[key_name_dep];
                 } else {
                     delete anchor_map_revise[key_name_dep];
-                    delete anchor_map_revise[`_s${key_name_dep}`];
+                    delete anchor_map_revise['_s' + key_name_dep];
                 }
             }
         }
@@ -88,7 +88,7 @@ spa.shell = (function () {
         stateMap.anchor_map = anchor_map_proposed;
 
         _s_chat_previous = anchor_map_previous._s_chat;
-        _s_chat_proposed = anchor_map_previous._s_chat;
+        _s_chat_proposed = anchor_map_proposed._s_chat;
 
         if (!anchor_map_previous || _s_chat_previous !== _s_chat_proposed) {
             s_chat_proposed = anchor_map_proposed.chat;
