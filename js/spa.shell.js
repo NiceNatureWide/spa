@@ -47,7 +47,7 @@ spa.shell = (function () {
     };
 
     changeAnchorPart = arg_map => {
-        let anchor_map_revise = copyAnchorMap;
+        let anchor_map_revise = copyAnchorMap();
         let bool_return = true;
         let key_name, key_name_dep;
 
@@ -77,7 +77,7 @@ spa.shell = (function () {
     };
 
     onHashchange = (event) => {
-        let anchor_map_previous = copyAnchorMap;
+        let anchor_map_previous = copyAnchorMap();
         let anchor_map_proposed, _s_chat_previous, _s_chat_proposed, s_chat_proposed;
 
         try {anchor_map_proposed = $.uriAnchor.makeAnchorMap();
